@@ -1,5 +1,5 @@
 const defaultState = {
-    films: []
+    filmsData: Object
 }
 
 const GET_FILMS = "GET_FILMS"
@@ -9,8 +9,9 @@ export const filmReducer = (state = defaultState, action) => {
     switch (action.type) {
         case GET_FILMS:
             try {
-                return {films: [state, ...action.payload]}
+                return {films: [state, action.payload]}
             } catch (e) {
+                console.log(e)
                 return {error: [action.payload]}
             }
         case NEW_LIST:
