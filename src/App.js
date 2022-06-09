@@ -1,10 +1,9 @@
-import Board from "./componenets/Board";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (
-    <div className="App">
-      main page
-        <Board/>
+    <div className="app">
+        <MainPage/>
     </div>
   );
 }
