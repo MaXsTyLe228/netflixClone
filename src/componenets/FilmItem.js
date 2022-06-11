@@ -4,14 +4,20 @@ import {BASE_IMG_URL} from "../consts";
 const FilmItem = (props) => {
 
     const prettyDate = (string) => {
-        const arr = string.split("-")
-        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        const day = arr[2]
-        const month = months[+arr[1] - 1]
-        const year = arr[0]
+        try{
+            const arr = string.split("-")
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const day = arr[2]
+            const month = months[+arr[1] - 1]
+            const year = arr[0]
 
-        return day + " " + month + " " + year
+            return day + " " + month + " " + year
+        }
+        catch (e) {
+            console.log(e)
+            return ""
+        }
     }
 
     return (

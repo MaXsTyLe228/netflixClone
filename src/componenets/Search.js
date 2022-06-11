@@ -13,17 +13,23 @@ const Search = () => {
         dispatch(fetchFilms('/search/movie?api_key=ceed96a8d65d1bac1ad9f10a951ac527&query=' + text))
     }
 
+    const onKeyUp = (event) => {
+        if (event.charCode === 13) {
+            findMovie();
+        }
+    }
+
     const clearResults = () => {
         textInput.current.value = ""
         dispatch(fetchFilms())
     }
 
     return (
-        <Form className={"searchContainer"}>
-            <Form.Control placeholder="Search a movie" ref={textInput}/>
+        <div className={"searchContainer"}>
+            <Form.Control placeholder="Search a movie" ref={textInput} onKeyPress={onKeyUp}/>
             <Button className={"searchButton"} variant="primary" onClick={findMovie}>Search</Button>
             <Button className={"searchButton"} variant="outline-secondary" onClick={clearResults}>clear results</Button>
-        </Form>
+        </div>
     );
 };
 
