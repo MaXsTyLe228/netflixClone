@@ -4,6 +4,7 @@ import {fetchFilms, newFilms} from "../store/filmsAPI";
 import FilmItem from "./FilmItem";
 import {Button} from "react-bootstrap";
 import {FILMS_KEY} from "../consts";
+import Search from "./Search";
 
 const Board = () => {
     const dispatch = useDispatch()
@@ -23,6 +24,7 @@ const Board = () => {
 
     return (
         <div className={"content"}>
+            <Search/>
             <div className={"board"}>
                 {data?.map((item, i) => <FilmItem img={item.poster_path} title={item.original_title}
                                                   rating={item.vote_average} date={item.release_date} key={i}/>)}

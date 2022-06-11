@@ -1,0 +1,8 @@
+.searchContainer {
+  display: flex;
+  margin-top: 20px;
+
+  & > .searchButton {
+    margin-left: 20px;
+  }
+}
