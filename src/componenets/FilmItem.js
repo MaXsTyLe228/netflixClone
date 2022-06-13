@@ -15,7 +15,7 @@ const FilmItem = (props) => {
     }
 
     const prettyDate = (string) => {
-        try {
+        if (string) {
             const arr = string.split("-")
             const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
                 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -24,10 +24,7 @@ const FilmItem = (props) => {
             const year = arr[0]
 
             return day + " " + month + " " + year
-        } catch (e) {
-            console.log(e)
-            return ""
-        }
+        } else return ""
     }
 
     return (

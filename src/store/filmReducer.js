@@ -2,6 +2,7 @@ const defaultState = {}
 
 const GET_FILMS = "GET_FILMS"
 const GET_FILM = "GET_FILM"
+//const GET_TVS = "GET_TVS"
 const NEW_LIST = "NEW_LIST"
 const NEW_PAGE = "NEW_PAGE"
 

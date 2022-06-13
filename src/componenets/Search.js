@@ -2,15 +2,17 @@ import React from 'react';
 import {Button, Form} from "react-bootstrap";
 import {useDispatch} from "react-redux";
 import {fetchFilms} from "../store/filmsAPI";
+import {FILMS_KEY} from "../consts";
 
-const Search = () => {
+const Search = (props) => {
+    const type = props.type
     const dispatch = useDispatch()
     let textInput = React.createRef();
 
     const findMovie = () => {
         const text = textInput.current.value
         console.log(text)
-        dispatch(fetchFilms('/search/movie?api_key=ceed96a8d65d1bac1ad9f10a951ac527&query=' + text))
+        dispatch(fetchFilms('/search/' + type + '?api_key=ceed96a8d65d1bac1ad9f10a951ac527&query=' + text))
     }
 
     const onKeyUp = (event) => {
@@ -21,12 +23,12 @@ const Search = () => {
 
     const clearResults = () => {
         textInput.current.value = ""
-        dispatch(fetchFilms())
+        dispatch(fetchFilms("/discover/" + type + "?sort_by=popularity.desc&api_key=" + FILMS_KEY))
     }
 
     return (
         <div className={"searchContainer"}>
-            <Form.Control placeholder="Search a movie" ref={textInput} onKeyPress={onKeyUp}/>
+            <Form.Control placeholder={"Search a " + type} ref={textInput} onKeyPress={onKeyUp}/>
             <Button className={"searchButton"} variant="primary" onClick={findMovie}>Search</Button>
             <Button className={"searchButton"} variant="outline-secondary" onClick={clearResults}>clear</Button>
         </div>
