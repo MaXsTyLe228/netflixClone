@@ -28,7 +28,7 @@ const Search = () => {
         <div className={"searchContainer"}>
             <Form.Control placeholder="Search a movie" ref={textInput} onKeyPress={onKeyUp}/>
             <Button className={"searchButton"} variant="primary" onClick={findMovie}>Search</Button>
-            <Button className={"searchButton"} variant="outline-secondary" onClick={clearResults}>clear results</Button>
+            <Button className={"searchButton"} variant="outline-secondary" onClick={clearResults}>clear</Button>
         </div>
     );
 };

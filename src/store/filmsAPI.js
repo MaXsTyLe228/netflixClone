@@ -1,8 +1,8 @@
 import axios from "axios";
-import {getFilmsAction, newFilmsAction, newPageAction} from "./filmReducer";
+import {getFilmAction, getFilmsAction, newFilmsAction, newPageAction} from "./filmReducer";
 import {BASE_FILMS_URL, FILMS_KEY} from "../consts";
 
-function fetchFilms(path="/discover/movie?sort_by=popularity.desc&api_key="+FILMS_KEY) {
+function fetchFilms(path = "/discover/movie?sort_by=popularity.desc&api_key=" + FILMS_KEY) {
     return async function (dispatch) {
         await axios.get(BASE_FILMS_URL + path)
             .then((data) => {
@@ -14,7 +14,7 @@ function fetchFilms(path="/discover/movie?sort_by=popularity.desc&api_key="+FILM
     };
 }
 
-function newFilms(path="/discover/movie?sort_by=popularity.desc&api_key="+FILMS_KEY) {
+function newFilms(path = "/discover/movie?sort_by=popularity.desc&api_key=" + FILMS_KEY) {
     return async function (dispatch) {
         await axios.get(BASE_FILMS_URL + path)
             .then((data) => {
@@ -26,4 +26,14 @@ function newFilms(path="/discover/movie?sort_by=popularity.desc&api_key="+FILMS_
     };
 }
 
-export {fetchFilms, newFilms}
+function getFilm(path) {
+    return async function (dispatch) {
+        await axios.get(BASE_FILMS_URL + path)
+            .then((data) => {
+                console.log(data.data)
+                dispatch(getFilmAction(data.data))
+            });
+    };
+}
+
+export {fetchFilms, newFilms, getFilm}

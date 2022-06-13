@@ -1,10 +1,21 @@
 import React from 'react';
 import {BASE_IMG_URL} from "../consts";
+import {useNavigate} from 'react-router-dom';
+import {getFilm} from "../store/filmsAPI";
+import {useDispatch} from "react-redux";
 
 const FilmItem = (props) => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch()
+
+
+    const getMovie = () => {
+        navigate('/movie/' + props.id);
+        dispatch(getFilm('/movie/' + props.id + '?api_key=ceed96a8d65d1bac1ad9f10a951ac527'))
+    }
 
     const prettyDate = (string) => {
-        try{
+        try {
             const arr = string.split("-")
             const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
                 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -13,8 +24,7 @@ const FilmItem = (props) => {
             const year = arr[0]
 
             return day + " " + month + " " + year
-        }
-        catch (e) {
+        } catch (e) {
             console.log(e)
             return ""
         }
@@ -23,11 +33,11 @@ const FilmItem = (props) => {
     return (
         <div className={"filmItem"}>
             <div className={"filmCard"}>
-                <img alt="film" loading="lazy" src={BASE_IMG_URL + props.img}/>
+                <img alt="film" loading="lazy" src={BASE_IMG_URL + props.img} onClick={getMovie}/>
                 <div className={"filmInfo"}>
                     <div className={"title"}>
                         <div className={"rating"}>{props.rating}</div>
-                        <a className={"filmName"}>{props.title}</a>
+                        <a className={"filmName"} onClick={getMovie}>{props.title}</a>
                     </div>
                     <div className={"date"}>{prettyDate(props.date)}</div>
                 </div>
