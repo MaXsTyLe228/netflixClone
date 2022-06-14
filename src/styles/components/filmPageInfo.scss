@@ -1,0 +1,22 @@
+.filmTitle {
+  font-size: 30px;
+}
+
+.descriptionTile {
+  font-size: 24px;
+}
+
+.description {
+}
+
+.filmContainer {
+  display: flex;
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+  }
+
+  & > img {
+    width: 220px;
+    height: 330px;
+  }
+}

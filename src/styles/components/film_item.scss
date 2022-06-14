@@ -15,45 +15,45 @@
       border-radius: 10px 10px 0 0;
     }
   }
+}
+.filmInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
 
-  .filmInfo {
+  .title {
     display: flex;
-    flex-direction: column;
-    padding: 5px;
+    align-items: center;
+  }
 
-    .title {
-      display: flex;
-      align-items: center;
+  .filmName {
+    cursor: pointer;
+    font-family: 'Source Sans Pro', Arial, sans-serif;
+    font-weight: bold;
+    margin-left: 5px;
+
+    &:hover {
+      color: cyan;
     }
+  }
 
-    .filmName {
-      cursor: pointer;
-      font-family: 'Source Sans Pro', Arial, sans-serif;
-      font-weight: bold;
-      margin-left: 5px;
+  .rating {
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #422626;
+    font-size: 20px;
+    border-radius: 50%;
+    font-family: "Comic Sans MS";
+    color: white;
+  }
 
-      &:hover {
-        color: cyan;
-      }
-    }
-
-    .rating {
-      min-width: 50px;
-      height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #422626;
-      font-size: 20px;
-      border-radius: 50%;
-      font-family: "Comic Sans MS";
-      color: white;
-    }
-
-    .date {
-      margin-top: 5px;
-      color: rgba(0, 0, 0, 0.6);
-      font-family: 'Source Sans Pro', Arial, sans-serif;
-    }
+  .date {
+    margin-top: 5px;
+    color: rgba(0, 0, 0, 0.6);
+    font-family: 'Source Sans Pro', Arial, sans-serif;
   }
 }

@@ -13,7 +13,7 @@ const FilmsBoard = () => {
 
     const loadMore = (e) => {
         const newPage = +page + 1
-        dispatch(newFilms("/discover/movie?sort_by=popularity.desc&api_key=" + FILMS_KEY + "&page=" + newPage))
+        dispatch(newFilms("/movie/popular?.desc&api_key=" + FILMS_KEY + "&page=" + newPage))
     }
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const FilmsBoard = () => {
         <div className={"content"}>
             <Search type={"movie"}/>
             <div className={"board"}>
-                {data?.map((item, i) => <FilmItem id={item.id} img={item.poster_path} title={item.original_title}
+                {data?.map((item, i) => <FilmItem type={"movie"} id={item.id} img={item.poster_path} title={item.original_title}
                                                   rating={item.vote_average} date={item.release_date} key={item.id}/>)}
             </div>
             <Button className={"loadButton"} onClick={loadMore} variant="primary">Load more</Button>

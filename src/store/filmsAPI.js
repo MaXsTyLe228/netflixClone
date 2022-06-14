@@ -2,7 +2,7 @@ import axios from "axios";
 import {getFilmAction, getFilmsAction, newFilmsAction, newPageAction} from "./filmReducer";
 import {BASE_FILMS_URL, FILMS_KEY} from "../consts";
 
-function fetchFilms(path = "/discover/movie?sort_by=popularity.desc&api_key=" + FILMS_KEY) {
+function fetchFilms(path = "/movie/popular?&api_key=" + FILMS_KEY) {
     return async function (dispatch) {
         await axios.get(BASE_FILMS_URL + path)
             .then((data) => {
@@ -14,7 +14,7 @@ function fetchFilms(path = "/discover/movie?sort_by=popularity.desc&api_key=" + 
     };
 }
 
-function newFilms(path = "/discover/movie?sort_by=popularity.desc&api_key=" + FILMS_KEY) {
+function newFilms(path = "movie/popular?&api_key=" + FILMS_KEY) {
     return async function (dispatch) {
         await axios.get(BASE_FILMS_URL + path)
             .then((data) => {

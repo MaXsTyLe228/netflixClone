@@ -13,12 +13,12 @@ const TvBoard = () => {
 
     const loadMore = (e) => {
         const newPage = +page + 1
-        dispatch(newFilms("/discover/tv?sort_by=popularity.desc&api_key=" + FILMS_KEY + "&page=" + newPage))
+        dispatch(newFilms("/tv/popular?&api_key=" + FILMS_KEY + "&page=" + newPage))
     }
 
     useEffect(() => {
         if (!data) {
-            dispatch(fetchFilms("/discover/tv?sort_by=popularity.desc&api_key=" + FILMS_KEY))
+            dispatch(fetchFilms("/tv/popular?&api_key=" + FILMS_KEY))
         }
     })
 
@@ -26,7 +26,7 @@ const TvBoard = () => {
         <div className={"content"}>
             <Search type={"tv"}/>
             <div className={"board"}>
-                {data?.map((item, i) => <FilmItem id={item.id} img={item.poster_path} title={item.name}
+                {data?.map((item, i) => <FilmItem type={"tv"} id={item.id} img={item.poster_path} title={item.name}
                                                   rating={item.vote_average} date={item.first_air_date} key={item.id}/>)}
             </div>
             <Button className={"loadButton"} onClick={loadMore} variant="primary">Load more</Button>

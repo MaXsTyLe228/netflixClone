@@ -10,8 +10,8 @@ const FilmItem = (props) => {
 
 
     const getMovie = () => {
-        navigate('/movie/' + props.id);
-        dispatch(getFilm('/movie/' + props.id + '?api_key=ceed96a8d65d1bac1ad9f10a951ac527'))
+        navigate('/' + props.type + '/' + props.id);
+        //dispatch(getFilm('/' + props.type + '/' + props.id + '?api_key=ceed96a8d65d1bac1ad9f10a951ac527'))
     }
 
     const prettyDate = (string) => {

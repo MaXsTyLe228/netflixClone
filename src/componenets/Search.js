@@ -23,7 +23,7 @@ const Search = (props) => {
 
     const clearResults = () => {
         textInput.current.value = ""
-        dispatch(fetchFilms("/discover/" + type + "?sort_by=popularity.desc&api_key=" + FILMS_KEY))
+        dispatch(fetchFilms("/" + type + "/popular?&api_key=" + FILMS_KEY))
     }
 
     return (
