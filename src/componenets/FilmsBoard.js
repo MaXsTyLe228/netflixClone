@@ -18,16 +18,21 @@ const FilmsBoard = () => {
 
     useEffect(() => {
         if (!data) {
-            dispatch(fetchFilms())
+            dispatch(fetchFilms("/movie/popular?.desc&api_key=" + FILMS_KEY))
         }
-    })
+    }, [])
 
     return (
         <div className={"content"}>
             <Search type={"movie"}/>
             <div className={"board"}>
-                {data?.map((item, i) => <FilmItem type={"movie"} id={item.id} img={item.poster_path} title={item.original_title}
-                                                  rating={item.vote_average} date={item.release_date} key={item.id}/>)}
+                {data?.map((item) => <FilmItem type={"movie"}
+                                                  id={item.id}
+                                                  img={item.poster_path}
+                                                  title={item.original_title}
+                                                  rating={item.vote_average}
+                                                  date={item.release_date}
+                                                  key={item.id}/>)}
             </div>
             <Button className={"loadButton"} onClick={loadMore} variant="primary">Load more</Button>
         </div>
