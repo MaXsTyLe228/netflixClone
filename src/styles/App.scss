@@ -1,0 +1,10 @@
+a {
+  color: black;
+  text-decoration: none;
+}
+
+@import "./components/header.scss";
+@import "./components/board.scss";
+@import "./components/film_item.scss";
+@import "./components/search.scss";
+@import "./components/filmPageInfo.scss";
