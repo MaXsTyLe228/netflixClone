@@ -3,6 +3,10 @@ a {
   text-decoration: none;
 }
 
+body {
+  background: azure;
+}
+
 @import "./components/header.scss";
 @import "./components/board.scss";
 @import "./components/film_item.scss";

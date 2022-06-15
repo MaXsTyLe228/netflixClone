@@ -10,15 +10,16 @@ const FilmsBoard = () => {
     const dispatch = useDispatch()
     const data = useSelector(state => state.filmReducer.films)
     const page = useSelector(state => state.filmReducer.page)
+    let num = window.location.pathname
 
     const loadMore = (e) => {
         const newPage = +page + 1
-        dispatch(newFilms("/movie/popular?.desc&api_key=" + FILMS_KEY + "&page=" + newPage))
+        dispatch(newFilms(num+"?.desc&api_key=" + FILMS_KEY + "&page=" + newPage))
     }
 
     useEffect(() => {
         if (!data) {
-            dispatch(fetchFilms("/movie/popular?.desc&api_key=" + FILMS_KEY))
+            dispatch(fetchFilms(num+"?.desc&api_key=" + FILMS_KEY))
         }
     }, [])
 
@@ -26,13 +27,13 @@ const FilmsBoard = () => {
         <div className={"content"}>
             <Search type={"movie"}/>
             <div className={"board"}>
-                {data?.map((item) => <FilmItem type={"movie"}
-                                                  id={item.id}
-                                                  img={item.poster_path}
-                                                  title={item.original_title}
-                                                  rating={item.vote_average}
-                                                  date={item.release_date}
-                                                  key={item.id}/>)}
+                {data?.map((item) => <FilmItem type={"oneMovie"}
+                                               id={item.id}
+                                               img={item.poster_path}
+                                               title={item.original_title}
+                                               rating={item.vote_average}
+                                               date={item.release_date}
+                                               key={item.id}/>)}
             </div>
             <Button className={"loadButton"} onClick={loadMore} variant="primary">Load more</Button>
         </div>
