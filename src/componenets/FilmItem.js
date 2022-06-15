@@ -1,17 +1,12 @@
 import React from 'react';
 import {BASE_IMG_URL} from "../consts";
 import {useNavigate} from 'react-router-dom';
-import {getFilm} from "../store/filmsAPI";
-import {useDispatch} from "react-redux";
 
 const FilmItem = (props) => {
     const navigate = useNavigate();
-    const dispatch = useDispatch()
-
 
     const getMovie = () => {
         navigate('/' + props.type + '/' + props.id);
-        //dispatch(getFilm('/' + props.type + '/' + props.id + '?api_key=ceed96a8d65d1bac1ad9f10a951ac527'))
     }
 
     const prettyDate = (string) => {

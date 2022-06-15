@@ -14,12 +14,12 @@ const FilmsBoard = () => {
 
     const loadMore = (e) => {
         const newPage = +page + 1
-        dispatch(newFilms(num+"?.desc&api_key=" + FILMS_KEY + "&page=" + newPage))
+        dispatch(newFilms(num + "?.desc&api_key=" + FILMS_KEY + "&page=" + newPage))
     }
 
     useEffect(() => {
         if (!data) {
-            dispatch(fetchFilms(num+"?.desc&api_key=" + FILMS_KEY))
+            dispatch(fetchFilms(num + "?.desc&api_key=" + FILMS_KEY))
         }
     }, [])
 
@@ -28,12 +28,12 @@ const FilmsBoard = () => {
             <Search type={"movie"}/>
             <div className={"board"}>
                 {data?.map((item, i) => <FilmItem type={"oneMovie"}
-                                               id={item.id}
-                                               img={item?.poster_path}
-                                               title={item.original_title}
-                                               rating={item.vote_average}
-                                               date={item.release_date}
-                                               key={i}/>)}
+                                                  id={item.id}
+                                                  img={item?.poster_path}
+                                                  title={item.original_title}
+                                                  rating={item.vote_average}
+                                                  date={item.release_date}
+                                                  key={i}/>)}
             </div>
             <Button className={"loadButton"} onClick={loadMore} variant="primary">Load more</Button>
         </div>

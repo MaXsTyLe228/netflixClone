@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {fetchFilms, getFilm} from "../store/filmsAPI";
+import {getFilm} from "../store/filmsAPI";
 import {useDispatch, useSelector} from "react-redux";
 import {BASE_IMG_URL, FILMS_KEY} from "../consts";
 

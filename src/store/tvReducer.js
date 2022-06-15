@@ -12,27 +12,24 @@ export const tvReducer = (state = defaultState, action) => {
                 return {...state, tv: action.payload}
             } catch (e) {
                 console.log(e)
-                //return {...state, error: [action.payload]}
             }
         case GET_TVS:
             try {
                 return {...state, tv: state.tv.concat(action.payload)}
             } catch (e) {
                 console.log(e)
-                //return {error: [action.payload]}
             }
         case NEW_TV_PAGE:
             try {
                 return {...state, tvPage: action.payload}
             } catch (e) {
                 console.log(e)
-                //return {...state, error: [action.payload]}
             }
         case NEW_TV_LIST:
             try {
                 return {tv: [...action.payload]}
             } catch (e) {
-                return {...state, error: [action.payload]}
+                console.log(e)
             }
         default:
             return state
