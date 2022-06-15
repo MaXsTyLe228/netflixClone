@@ -29,7 +29,7 @@ const FilmsBoard = () => {
             <div className={"board"}>
                 {data?.map((item, i) => <FilmItem type={"oneMovie"}
                                                id={item.id}
-                                               img={item.poster_path}
+                                               img={item?.poster_path}
                                                title={item.original_title}
                                                rating={item.vote_average}
                                                date={item.release_date}

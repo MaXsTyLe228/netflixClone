@@ -33,7 +33,7 @@ const TvBoard = () => {
             <div className={"board"}>
                 {data?.map((item, i) => <FilmItem type={"oneTv"}
                                                id={item.id}
-                                               img={item.poster_path}
+                                               img={item?.poster_path}
                                                title={item.name}
                                                rating={item.vote_average}
                                                date={item.first_air_date}

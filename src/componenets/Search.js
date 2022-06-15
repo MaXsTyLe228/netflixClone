@@ -3,6 +3,7 @@ import {Button, Form} from "react-bootstrap";
 import {useDispatch} from "react-redux";
 import {fetchFilms} from "../store/filmsAPI";
 import {FILMS_KEY} from "../consts";
+import {fetchTvs} from "../store/tvsAPI";
 
 const Search = (props) => {
     const type = props.type
@@ -13,7 +14,11 @@ const Search = (props) => {
     const findMovie = () => {
         const text = textInput.current.value
         console.log(text)
-        dispatch(fetchFilms('/search/' + type + '?api_key=ceed96a8d65d1bac1ad9f10a951ac527&query=' + text))
+        if (props.type === "movie") {
+            dispatch(fetchFilms('/search/' + type + '?api_key=' + FILMS_KEY + '&query=' + text))
+        } else if (props.type === "tv") {
+            dispatch(fetchTvs('/search/' + type + "?&api_key=" + FILMS_KEY + '&query=' + text))
+        }
     }
 
     const onKeyUp = (event) => {
@@ -24,7 +29,12 @@ const Search = (props) => {
 
     const clearResults = () => {
         textInput.current.value = ""
-        dispatch(fetchFilms(num + "?&api_key=" + FILMS_KEY))
+
+        if (props.type === "movie") {
+            dispatch(fetchFilms(num + "?&api_key=" + FILMS_KEY))
+        } else if (props.type === "tv") {
+            dispatch(fetchTvs(num + "?&api_key=" + FILMS_KEY))
+        }
     }
 
     return (
