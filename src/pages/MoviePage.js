@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
-import {fetchFilms, getFilm} from "../store/filmsAPI";
+import {getFilm} from "../store/filmsAPI";
 import {useDispatch, useSelector} from "react-redux";
 import {BASE_IMG_URL, FILMS_KEY} from "../consts";
 
 const MoviePage = (props) => {
     const dispatch = useDispatch()
     let data = useSelector(state => state.filmReducer.film)
-    let num = window.location.pathname.replace('/movie/', '').replace('/tv/', '')
+    let num = window.location.pathname.replace('/oneMovie/', '').replace('/oneTv/', '')
 
     const prettyDate = (string) => {
         if (string) {
