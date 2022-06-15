@@ -27,13 +27,13 @@ const FilmsBoard = () => {
         <div className={"content"}>
             <Search type={"movie"}/>
             <div className={"board"}>
-                {data?.map((item) => <FilmItem type={"oneMovie"}
+                {data?.map((item, i) => <FilmItem type={"oneMovie"}
                                                id={item.id}
                                                img={item.poster_path}
                                                title={item.original_title}
                                                rating={item.vote_average}
                                                date={item.release_date}
-                                               key={item.id}/>)}
+                                               key={i}/>)}
             </div>
             <Button className={"loadButton"} onClick={loadMore} variant="primary">Load more</Button>
         </div>

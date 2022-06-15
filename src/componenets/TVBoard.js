@@ -31,13 +31,13 @@ const TvBoard = () => {
         <div className={"content"}>
             <Search type={"tv"}/>
             <div className={"board"}>
-                {data?.map((item) => <FilmItem type={"oneTv"}
+                {data?.map((item, i) => <FilmItem type={"oneTv"}
                                                id={item.id}
                                                img={item.poster_path}
                                                title={item.name}
                                                rating={item.vote_average}
                                                date={item.first_air_date}
-                                               key={item.id}/>)}
+                                               key={i}/>)}
             </div>
             <Button className={"loadButton"} onClick={loadMore} variant="primary">Load more</Button>
         </div>
