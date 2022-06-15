@@ -8,6 +8,7 @@ const Search = (props) => {
     const type = props.type
     const dispatch = useDispatch()
     let textInput = React.createRef();
+    let num = window.location.pathname
 
     const findMovie = () => {
         const text = textInput.current.value
@@ -23,7 +24,7 @@ const Search = (props) => {
 
     const clearResults = () => {
         textInput.current.value = ""
-        dispatch(fetchFilms("/" + type + "/popular?&api_key=" + FILMS_KEY))
+        dispatch(fetchFilms(num + "?&api_key=" + FILMS_KEY))
     }
 
     return (

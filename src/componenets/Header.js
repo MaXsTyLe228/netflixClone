@@ -24,8 +24,13 @@ const Header = () => {
                         <NavDropdown.Divider/>
                         <NavDropdown.Item href="/movie/upcoming">Upcoming</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link href="/tv">Serials</Nav.Link>
-                    <Nav.Link href="/">Pricing</Nav.Link>
+                    <NavDropdown title="Serials" id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/tv/popular">Popular</NavDropdown.Item>
+                        <NavDropdown.Item href="/tv/top_rated">Top rated</NavDropdown.Item>
+                        <NavDropdown.Item href="/tv/airing_today">Airing Today</NavDropdown.Item>
+                        <NavDropdown.Divider/>
+                        <NavDropdown.Item href="/tv/on_the_air">Now on TV</NavDropdown.Item>
+                    </NavDropdown>
                 </Nav>
             </Container>
         </Navbar>

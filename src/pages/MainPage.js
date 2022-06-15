@@ -11,7 +11,7 @@ const MainPage = () => {
             <Header/>
             <Routes>
                 <Route path="/movie/:type" element={<FilmsBoard/>}/>
-                <Route path="/tv" element={<TvBoard/>}/>
+                <Route path="/tv/:type" element={<TvBoard/>}/>
                 <Route path="/oneMovie/:movieId" element={<MoviePage type={"movie"}/>}/>
                 <Route path="/oneTv/:tvId" element={<MoviePage type={"tv"}/>}/>
             </Routes>
